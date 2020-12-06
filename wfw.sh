@@ -28,7 +28,7 @@ while read -r line ; do
   
     MAC=`echo "$fullMAC" | sed 's/ //g' | sed 's/-//g' | sed 's/://g' | cut -c1-6`
   
-    result="$(grep -i -A 1 ^$MAC oui.txt)";
+    result="$(grep -i -A 1 ^$MAC $HOME/WifiMonitor/.Exploitation/oui.txt)";
    
     if [ "$result" ]; then
         echo -e "\tVendor: `echo "$result" | cut -f 3`"
@@ -57,7 +57,7 @@ while read -r line ; do
             echo -e "\t\t\033[0;32m" `echo $clientsMAC | cut -d ',' -f 1` "\e[0m"
             MAC2=`echo "$clientsMAC" | sed 's/ //g' | sed 's/-//g' | sed 's/://g' | cut -c1-6`
   
-            result2="$(grep -i -A 1 ^$MAC2 ./oui.txt)";
+            result2="$(grep -i -A 1 ^$MAC2 $HOME/WifiMonitor/.Exploitation/oui.txt)";
    
             if [ "$result2" ]; then
                 echo -e "\t\t\tVendor: `echo "$result2" | cut -f 3`"
@@ -94,7 +94,7 @@ while read -r line2 ; do
     echo -e "\033[0;31m" `echo $clientsMAC | cut -d ',' -f 1` "\e[0m"
     MAC2=`echo "$clientsMAC" | sed 's/ //g' | sed 's/-//g' | sed 's/://g' | cut -c1-6`
   
-    result2="$(grep -i -A 1 ^$MAC2 ./oui.txt)";
+    result2="$(grep -i -A 1 ^$MAC2 $HOME/WifiMonitor/.Exploitation/oui.txt)";
   
     if [ "$result2" ]; then
         echo -e "\tVendor: `echo "$result2" | cut -f 3`"
