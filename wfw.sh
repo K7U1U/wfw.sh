@@ -28,7 +28,7 @@ while read -r line ; do
   
     MAC=`echo "$fullMAC" | sed 's/ //g' | sed 's/-//g' | sed 's/://g' | cut -c1-6`
   
-    result="$(grep -i -A 1 ^$MAC ./oui.txt)";
+    result="$(grep -i -A 1 ^$MAC oui.txt)";
    
     if [ "$result" ]; then
         echo -e "\tVendor: `echo "$result" | cut -f 3`"
